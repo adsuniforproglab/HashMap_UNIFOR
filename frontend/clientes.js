@@ -38,7 +38,7 @@ function carregarTabela(clientes) {
 
 function listarTodosClientes() {
     console.log("Buscando Cliente");
-    fetch("http://localhost:8080/user/getAll")
+    fetch("https://hashmap-backend-latest.onrender.com/user/getAll")
         .then(resp => resp.json())
         .then(json => carregarTabela(json))
         .catch(err => console.log(err))
@@ -54,7 +54,7 @@ function buscarClienteCPF() {
         return;
     }
 
-    fetch("http://localhost:8080/user/" + cpf)
+    fetch("https://hashmap-backend-latest.onrender.com/user/" + cpf)
         .then(resp => resp.json())
         .then(json => adicionarLinha(json))
         .catch(err => console.log(err))
@@ -71,7 +71,7 @@ function cadastrarCliente() {
     cliente.cpf = document.getElementById('cpf').value;
     cliente.phone = document.getElementById('celular').value;
     cliente.email = document.getElementById('email').value;
-    fetch("http://localhost:8080/user", {
+    fetch("https://hashmap-backend-latest.onrender.com/user", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cliente)

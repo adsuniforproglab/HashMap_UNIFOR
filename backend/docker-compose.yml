@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  hashmap-backend-app:
+    image: leonardomeireles55/hashmap_backend:latest
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app
+    container_name: hashmap-backend
+    ports:
+      - 8080:8080
+    stdin_open: true
+    tty: true
+    expose:
+      - 8080:8080
